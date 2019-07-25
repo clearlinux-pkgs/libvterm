@@ -1,5 +1,5 @@
 PKG_NAME := libvterm
-URL = https://bazaar.launchpad.net/~libvterm/libvterm/trunk/tarball/736
+URL = http://deb.debian.org/debian/pool/main/libv/libvterm/libvterm_0~bzr718.orig.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
