@@ -1,5 +1,5 @@
 PKG_NAME := libvterm
-URL = http://deb.debian.org/debian/pool/main/libv/libvterm/libvterm_0~bzr718.orig.tar.gz
+URL = http://www.leonerd.org.uk/code/libvterm/libvterm-0+bzr726.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
