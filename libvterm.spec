@@ -4,7 +4,7 @@
 #
 Name     : libvterm
 Version  : 0.1.2
-Release  : 4
+Release  : 5
 URL      : http://www.leonerd.org.uk/code/libvterm/libvterm-0.1.2.tar.gz
 Source0  : http://www.leonerd.org.uk/code/libvterm/libvterm-0.1.2.tar.gz
 Summary  : Abstract library implementation of a VT220/xterm/ECMA-48 terminal emulator
