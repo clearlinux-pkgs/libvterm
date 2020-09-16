@@ -4,7 +4,7 @@
 #
 Name     : libvterm
 Version  : 0.1.4
-Release  : 7
+Release  : 8
 URL      : http://www.leonerd.org.uk/code/libvterm/libvterm-0.1.4.tar.gz
 Source0  : http://www.leonerd.org.uk/code/libvterm/libvterm-0.1.4.tar.gz
 Summary  : Abstract VT220/Xterm/ECMA-48 emulation library
@@ -13,6 +13,7 @@ License  : MIT
 Requires: libvterm-bin = %{version}-%{release}
 Requires: libvterm-lib = %{version}-%{release}
 Requires: libvterm-license = %{version}-%{release}
+Patch1: CVE-2018-20786.patch
 
 %description
 No detailed description available
@@ -58,26 +59,27 @@ license components for the libvterm package.
 %prep
 %setup -q -n libvterm-0.1.4
 cd %{_builddir}/libvterm-0.1.4
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1598284032
+export SOURCE_DATE_EPOCH=1600294770
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
 make  %{?_smp_mflags}  PREFIX=/usr LIBDIR=/usr/lib64 CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
 
 
 %install
-export SOURCE_DATE_EPOCH=1598284032
+export SOURCE_DATE_EPOCH=1600294770
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libvterm
 cp %{_builddir}/libvterm-0.1.4/LICENSE %{buildroot}/usr/share/package-licenses/libvterm/9979f112bdecefd99762f24f6af76972c2a3a1a6
