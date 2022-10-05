@@ -4,7 +4,7 @@
 #
 Name     : libvterm
 Version  : 0.3
-Release  : 10
+Release  : 11
 URL      : https://www.leonerd.org.uk/code/libvterm/libvterm-0.3.tar.gz
 Source0  : https://www.leonerd.org.uk/code/libvterm/libvterm-0.3.tar.gz
 Summary  : Abstract VT220/Xterm/ECMA-48 emulation library
@@ -64,20 +64,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1664569119
+export SOURCE_DATE_EPOCH=1664931393
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 make  %{?_smp_mflags}  PREFIX=/usr LIBDIR=/usr/lib64 CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS"
 
 
 %install
-export SOURCE_DATE_EPOCH=1664569119
+export SOURCE_DATE_EPOCH=1664931393
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libvterm
 cp %{_builddir}/libvterm-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/libvterm/9979f112bdecefd99762f24f6af76972c2a3a1a6 || :
