@@ -5,7 +5,7 @@
 #
 Name     : libvterm
 Version  : 0.3.2
-Release  : 13
+Release  : 14
 URL      : https://www.leonerd.org.uk/code/libvterm/libvterm-0.3.2.tar.gz
 Source0  : https://www.leonerd.org.uk/code/libvterm/libvterm-0.3.2.tar.gz
 Summary  : Abstract VT220/Xterm/ECMA-48 emulation library
@@ -71,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684863254
+export SOURCE_DATE_EPOCH=1685633796
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -92,7 +92,7 @@ make  %{?_smp_mflags}  PREFIX=/usr LIBDIR=/usr/lib64 CFLAGS="$CFLAGS" LDFLAGS="$
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684863254
+export SOURCE_DATE_EPOCH=1685633796
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libvterm
 cp %{_builddir}/libvterm-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/libvterm/9979f112bdecefd99762f24f6af76972c2a3a1a6 || :
@@ -116,7 +116,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libvterm.so
 /usr/include/vterm.h
 /usr/include/vterm_keycodes.h
 /usr/lib64/libvterm.so
@@ -124,7 +123,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libvterm.so.0
 /V3/usr/lib64/libvterm.so.0.0.0
 /usr/lib64/libvterm.so.0
 /usr/lib64/libvterm.so.0.0.0
